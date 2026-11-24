@@ -9,12 +9,12 @@ shell：bash <br>
   默认 `~/ddns-sh/` 路径下工作，若自定请修改 main.sh 的第 4 行
 
 ### 必需文件：
-- **[main.sh](https://github.com/HAN-workspace/auto-ddns/blob/main/ddns-sh/main.sh)** 主脚本，判断公网IP是否发生变化的逻辑，读取配置，调用对应的域名托管商 DNS API。如：aliyun.sh、cloudflare.sh、tencent.sh
-- **[aliyun.sh](https://github.com/HAN-workspace/auto-ddns/blob/main/ddns-sh/aliyun.sh)** 与*阿里云*交互的 API 脚本，进行主机记录的增删改查操作
-- **[cloudflare.sh](https://github.com/HAN-workspace/auto-ddns/blob/main/ddns-sh/cloudflare.sh)** 与*cloudflare*交互的 API 脚本，进行主机记录的增删改查操作
-- **[tencent.sh](https://github.com/HAN-workspace/auto-ddns/blob/main/ddns-sh/tencent.sh)** 与*腾讯云*交互的 API 脚本，进行主机记录的增删改查操作
-- **[domain name](https://github.com/HAN-workspace/auto-ddns/blob/main/ddns-sh/example.com.cn)** 配置文件 [参考示例](https://github.com/HAN-workspace/auto-ddns/blob/main/ddns-sh/readme.md#domain-%E5%86%85%E7%BB%93%E6%9E%84) 编写属于你的专用配置<br>
-此文件名需用你的域名命名 ( *[example.com.cn](https://github.com/HAN-workspace/auto-ddns/blob/main/ddns-sh/example.com.cn)* )
+- **[main.sh](https://github.com/d2028Han/auto-ddns/blob/main/ddns-sh/main.sh)** 主脚本，判断公网IP是否发生变化的逻辑，读取配置，调用对应的域名托管商 DNS API。如：aliyun.sh、cloudflare.sh、tencent.sh
+- **[aliyun.sh](https://github.com/d2028Han/auto-ddns/blob/main/ddns-sh/aliyun.sh)** 与*阿里云*交互的 API 脚本，进行主机记录的增删改查操作
+- **[cloudflare.sh](https://github.com/d2028Han/auto-ddns/blob/main/ddns-sh/cloudflare.sh)** 与*cloudflare*交互的 API 脚本，进行主机记录的增删改查操作
+- **[tencent.sh](https://github.com/d2028Han/auto-ddns/blob/main/ddns-sh/tencent.sh)** 与*腾讯云*交互的 API 脚本，进行主机记录的增删改查操作
+- **[domain name](https://github.com/d2028Han/auto-ddns/blob/main/ddns-sh/example.com.cn)** 配置文件 [参考示例](https://github.com/d2028Han/auto-ddns/blob/main/ddns-sh/readme.md#domain-%E5%86%85%E7%BB%93%E6%9E%84) 编写属于你的专用配置<br>
+此文件名需用你的域名命名 ( *[example.com.cn](https://github.com/d2028Han/auto-ddns/blob/main/ddns-sh/example.com.cn)* )
 - **info.log** 记录：公网IP发生变化、向 *DNS 域名托管商* 交互时的错误信息、更新/新增/删除主机记录的操作也会记录
 - **公网IPv4** 初始名字为：`1.1.1.1` 用于比对当前获得的公网IPv4，首次运行本脚本且脚本正常结束时，文件名会被脚本更名为当前公网 IPv4 地址
 - **公网IPv6** 初始名字为：`240e-1-1-1` 用于比对当前获得的公网IPv6前缀，首次运行本脚本且脚本正常结束时，文件名会被脚本更名为当前公网 IPv6 前缀
@@ -45,7 +45,7 @@ crontab -e
 注：只有脚本获得的 “公网IPv4” 或 “公网IPv6” 对比 “公网IPv4/6 文件名” 不同时，脚本才会向下执行。
 
 ## domain 内结构：
-共五个【section】: [【Auth】](https://github.com/HAN-workspace/auto-ddns/blob/main/ddns-sh/readme.md#auth) [【Direct】](https://github.com/HAN-workspace/auto-ddns/blob/main/ddns-sh/readme.md#direct) [【IPv6】](https://github.com/HAN-workspace/auto-ddns/blob/main/ddns-sh/readme.md#ipv6) [【IPv4】](https://github.com/HAN-workspace/auto-ddns/blob/main/ddns-sh/readme.md#ipv4) [【EnableCFproxied】](https://github.com/HAN-workspace/auto-ddns/blob/main/ddns-sh/readme.md#enablecfproxied)
+共五个【section】: [【Auth】](https://github.com/d2028Han/auto-ddns/blob/main/ddns-sh/readme.md#auth) [【Direct】](https://github.com/d2028Han/auto-ddns/blob/main/ddns-sh/readme.md#direct) [【IPv6】](https://github.com/d2028Han/auto-ddns/blob/main/ddns-sh/readme.md#ipv6) [【IPv4】](https://github.com/d2028Han/auto-ddns/blob/main/ddns-sh/readme.md#ipv4) [【EnableCFproxied】](https://github.com/d2028Han/auto-ddns/blob/main/ddns-sh/readme.md#enablecfproxied)
 ### 配置示例：abc.com
 ```txt
 [Auth]
@@ -96,7 +96,7 @@ cloudflare_zoneID= <br>
 
 <font color="red">**重要：建议登陆对应的域名托管商网站，新建专用子用户 ( 阿里叫RAM、腾讯叫CAM、cloudflare叫Accunt/Token )，且限制仅能进行DNS记录操作权限。**<font><br>
 （ 目前支持 aliyun、cloudflare、tencent ）<br>
-[返回示例](https://github.com/HAN-workspace/auto-ddns/blob/main/ddns-sh/readme.md#domain-%E5%86%85%E7%BB%93%E6%9E%84)
+[返回示例](https://github.com/d2028Han/auto-ddns/blob/main/ddns-sh/readme.md#domain-%E5%86%85%E7%BB%93%E6%9E%84)
 
 #### 【Direct】<br>
 在【Direct】内配置可实现直连(仅支持IPv6)，在这里填写 “主机记录=直连主机的IPv6后缀” 即可<br><br>
@@ -112,7 +112,7 @@ reverseProxy=“反向代理服务器的IPv6后缀” 本条目是为配置在�
 |truenas|AAAA|2???\:x\:x\:x\:1234\:56ff\:fe78\:90ab|
 
 重要：填写的是主机的后缀、后缀、后缀，**（前缀由脚本自动截取公网IPv6网关，再合并成完整的主机IPv6地址）**<br>
-[返回示例](https://github.com/HAN-workspace/auto-ddns/blob/main/ddns-sh/readme.md#domain-%E5%86%85%E7%BB%93%E6%9E%84)
+[返回示例](https://github.com/d2028Han/auto-ddns/blob/main/ddns-sh/readme.md#domain-%E5%86%85%E7%BB%93%E6%9E%84)
 
 #### 【IPv6】<br>
 本 section 是为非直连 (即使用反向代理) 的子域名配置使用 <br>
@@ -130,7 +130,7 @@ reverseProxy=“反向代理服务器的IPv6后缀” 本条目是为配置在�
 注：如果不用 IPv6 (AAAA记录类型) 反向代理，清空【IPv6】这个 section 内的内容<br><br>
 重要：使用 【IPv6】的反向代理时 必须在 【Direct】填写反向代理 reverseProxy=“代理服务的IPv6后缀” 条目（ 例：reverseProxy=abcd\:efff\:fe12\:3456 ）<br>
 重要：填写的是主机的后缀、后缀、后缀，**（前缀由脚本自动截取公网IPv6网关，再合并成完整的主机IPv6地址）**<br>
-[返回示例](https://github.com/HAN-workspace/auto-ddns/blob/main/ddns-sh/readme.md#domain-%E5%86%85%E7%BB%93%E6%9E%84)
+[返回示例](https://github.com/d2028Han/auto-ddns/blob/main/ddns-sh/readme.md#domain-%E5%86%85%E7%BB%93%E6%9E%84)
 
 #### 【IPv4】<br>
 本 section 是为非直连 (即反向代理) 的子域名配置使用 <br>
@@ -145,7 +145,7 @@ reverseProxy=“反向代理服务器的IPv6后缀” 本条目是为配置在�
 |wiki|A|x.x.x.x|
 
 注：如果不用 IPv4 (A记录类型) 请清空 【IPv4】 这个 section 内的内容 <br>
-[返回示例](https://github.com/HAN-workspace/auto-ddns/blob/main/ddns-sh/readme.md#domain-%E5%86%85%E7%BB%93%E6%9E%84)
+[返回示例](https://github.com/d2028Han/auto-ddns/blob/main/ddns-sh/readme.md#domain-%E5%86%85%E7%BB%93%E6%9E%84)
 
 #### 【EnableCFproxied】<br>
 本 section 是 cloudflare 特有的 “开启代理” 模式，其作用是隐藏真实IP 的防护、走 CF 的 CDN 路由 <br>
@@ -166,13 +166,13 @@ reverseProxy=“反向代理服务器的IPv6后缀” 本条目是为配置在�
 |wiki.abc.com|A|x.x.x.x|已代理|解释出的是 CF专用的 IPv4/6 地址|
 |fnos.abc.com|AAAA|2???\:x\:x\:x\:abcd\:efff\:fe12\:3456|已代理|解释出的是 CF专用的 IPv4/6 地址|
 |nas.abc.com|AAAA|2???\:x\:x\:x\:a1b2\:c3ff\:fee4\:d5e6|仅DNS|解释出内容中的地址|
-|truenas.abc.com|AAAA|2???\:x\:x\:x\:1234\:56ff\:fe78\:90ab|已代理|解释出的是 CF专用的 IPv4/6 地址|
+|truenas.abc.com|AAAA|2???\:x\:x\:x\:abcd\:efff\:fe12\:3456|已代理|解释出的是 CF专用的 IPv4/6 地址|
 
-注意：IPv4=true 时 CF 会为【IPv4】内的主机记录配置 CF 的 IPv4/6 地址，不再解释真实公网地址<br>
-注意：同样IPv6=true 时【IPv6】内的主机记录也会配置 CF 的 IPv4/6 地址，也不被解释 reverseProxy= 地址<br>
-注意：【Direct】内的直连主机记录在【EnableCFproxied】内配置为 true ，也不会被解释<br>
-注意：因 CF代理 配置的地址高于 你的公网地址，所以慎用，建议【IPv4】【IPv6】【Direct】内的不要用相同的主机记录名字<br><br>
+注意：IPv4=true 时 CF 会为【IPv4】内的主机记录配置 CF 的 IPv4 地址，不再解释真实公网地址<br>
+注意：同样 IPv6=true 时【IPv6】内的主机记录也会配置 CF 的 IPv6 地址，不再解释真实公网地址<br>
+注意：【Direct】内的直连主机记录若在【EnableCFproxied】内配置为 true 如 truenas=true，此时将解释成代理的 IPv6 地址<br>
+注意：因 CF代理 配置的地址高于你配置的公网地址，所以慎用，建议【IPv4】【IPv6】/【Direct】内的不要用相同的主机记录名字<br><br>
 
-重要：CF代理 默认转发 80 443 端口的流量到源服务器，当你被 ISP 封这两个端口时，CF代理转发的流量会失败 <br>
-解决：登陆 CF 控制台，找到你的域名，“规则” -> "创建规则" -> "Origin Rules"，如：把 80 端口重写到 “5647” 或 443 端口重写到 ”55555” <br>
-[返回示例](https://github.com/HAN-workspace/auto-ddns/blob/main/ddns-sh/readme.md#domain-%E5%86%85%E7%BB%93%E6%9E%84)
+重要：开启 CF代理 默认向源服务器的 80/443 端口发送数据，当你被 ISP 封这两个端口时，CF代理将会失败 <br>
+解决：登陆 CF 控制台，找到你的域名，“规则” -> "创建规则" -> "Origin Rules(源服务器规则)"，如：把 80 端口重写到 如“5647” 或 443 端口重写到 如”55555” <br>
+[返回示例](https://github.com/d2028Han/auto-ddns/blob/main/ddns-sh/readme.md#domain-%E5%86%85%E7%BB%93%E6%9E%84)

@@ -1,4 +1,4 @@
-[立即下载 latest 版：ddns-sh.tar](https://github.com/HAN-workspace/auto-ddns/releases/latest/download/ddns-sh.tar)<br>
+[立即下载 latest 版：ddns-sh.tar](https://github.com/d2028Han/auto-ddns/releases/latest/download/ddns-sh.tar)<br>
 ## 介绍
 auto-ddns 是轻量级的动态dns集，自动调用 域名托管商 DNS API 进行 DNS记录操作 ( 支持：阿里云 、 cloudflare 、 腾讯云 )<br>
 支持 IPv4/6 动态公网地址，主机记录(A/AAAA)的增删改查。<br>
@@ -34,12 +34,12 @@ ddns-sh 是纯 linux bash 脚本，可运行于精简过的 bash 下，如 OpenW
 
 ## 安装教程
 绿色脚本 无需安装 解压即用<br>
-只需 [ddns-sh](https://gitee.com/HAN-workspace/auto-ddns/tree/main/ddns-sh) 目录中的文件<br>
+只需 [ddns-sh](https://github.com/d2028Han/auto-ddns/tree/main/ddns-sh) 目录中的文件<br>
 标记为 `*` 为必要文件，or* 为可选的必要文件（选择用于你的域名托管商 API 即可）<br>
 
 ## 使用说明
-请阅读 [详细说明](https://github.com/HAN-workspace/auto-ddns/blob/main/ddns-sh/readme.md) 文件。
-- 编写的属于你的[配置文件](https://github.com/HAN-workspace/auto-ddns/blob/main/ddns-sh/example.com.cn) （该配置文件以你的域名名字命名）[查看配置文件示例](https://github.com/HAN-workspace/auto-ddns/blob/main/ddns-sh/readme.md#domain-%E5%86%85%E7%BB%93%E6%9E%84)
+请阅读 [详细说明](https://github.com/d2028Han/auto-ddns/blob/main/ddns-sh/readme.md) 文件。
+- 编写的属于你的[配置文件](https://github.com/d2028Han/auto-ddns/blob/main/ddns-sh/example.com.cn) （该配置文件以你的域名名字命名）[查看配置文件示例](https://github.com/d2028Han/auto-ddns/blob/main/ddns-sh/readme.md#domain-%E5%86%85%E7%BB%93%E6%9E%84)
 - 使主程序可运行  `chmod +x main.sh`
 - 直接运行  `./main.sh “配置文件名”`
 - 添加到任务让程序定时运行 `crontab -e` (可选)<br>
@@ -58,4 +58,4 @@ ddns-sh 是纯 linux bash 脚本，可运行于精简过的 bash 下，如 OpenW
   - 再次执行 `./main.sh 配置文件名`
 
 ## 许可证
-auto-ddns 项目的许可协议 MIT 。更多信息参见 [LICENSE](https://github.com/HAN-workspace/auto-ddns/blob/main/license.md) 文件。
+auto-ddns 项目的许可协议 MIT 。更多信息参见 [LICENSE](https://github.com/d2028Han/auto-ddns/blob/main/license.md) 文件。

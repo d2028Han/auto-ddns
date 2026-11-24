@@ -172,11 +172,15 @@ gateway_ip4=$(ip route | awk '/^default/ {print $3; exit}')
 if [[ $gateway_ip4 =~ ^10.*|192.168.*|127.*|172.1[6-9].*|172.2[0-9].*|172.3[0-1].*|100.64.* ]];then
     if [[ $gateway_ip4 =~ ^100.64.* ]];then
         logTotalEntries
-        echo -n "[$(date "+%G/%m/%d %H:%M:%S")]  ${gateway_ip4} 线路没有公网 IPv4 地址" >> info.log
+        echo -n "[$(date "+%G/%m/%d %H:%M:%S")] 线路没有公网 IPv4 地址，当前网关 ${gateway_ip4} " >> info.log
         currentIPv4="None"
     else
-        currentIPv4=$(wget -qO- -t1 -T2 http://ip.3322.net)
-        logTotalEntries
+        currentIPv4=$(wget -qO- -T2 http://ip.3322.net)
+        if [[ $currentIPv4 != ^[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}$ ]];then
+            logTotalEntries
+            echo -n "[$(date "+%G/%m/%d %H:%M:%S")] 线路或迟时问题没有返回公网 IPv4 地址，当前网关 ${gateway_ip4} "  >> info.log
+            currentIPv4="None"
+        fi
     fi
 else
     currentIPv4=$(ip addr show pppoe-wan | grep 'inet ' | awk '{print $2}' | cut -d'/' -f1 | head -1)
